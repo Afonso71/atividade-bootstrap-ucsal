@@ -3,427 +3,310 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PITLOG // Bancada Mecânica — Bootstrap 5 (UCSal)</title>
+  <title>PITLOG // Bancada Mecânica — Tailwind CSS (Desafio Extra UCSal)</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-  <style>
-    :root {
-      --manila-bg: #EFECE6;
-      --grease-ink: #141413;
-      --caliper-red: #D9381E;
-      --font-display: 'Big Shoulders Display', sans-serif;
-      --font-mono: 'IBM Plex Mono', monospace;
-    }
-
-    body {
-      background-color: var(--manila-bg);
-      color: var(--grease-ink);
-      font-family: var(--font-mono);
-    }
-
-    h1, h2, h3, h4, h5, .navbar-brand, .modal-title {
-      font-family: var(--font-display);
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-      font-weight: 800;
-    }
-
-    .navbar-pitlog {
-      background-color: var(--grease-ink);
-      border-bottom: 3px solid var(--caliper-red);
-    }
-
-    .section-border {
-      border-bottom: 2px solid var(--grease-ink);
-    }
-
-    .tag-serial {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--caliper-red);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .card-pitlog {
-      background-color: var(--manila-bg);
-      border: 2px solid var(--grease-ink);
-      border-radius: 0;
-    }
-
-    .card-pitlog .card-img-top {
-      border-radius: 0;
-      border-bottom: 2px solid var(--grease-ink);
-      height: 210px;
-      object-fit: cover;
-      filter: grayscale(100%) contrast(125%);
-    }
-
-    .btn-pitlog {
-      background-color: var(--grease-ink);
-      color: var(--manila-bg);
-      border: 2px solid var(--grease-ink);
-      border-radius: 0;
-      font-weight: 600;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      padding: 0.6rem 1.1rem;
-    }
-
-    .btn-pitlog:hover {
-      background-color: var(--caliper-red);
-      border-color: var(--caliper-red);
-      color: #fff;
-    }
-
-    .btn-outline-pitlog {
-      background-color: transparent;
-      color: var(--grease-ink);
-      border: 2px solid var(--grease-ink);
-      border-radius: 0;
-      font-weight: 600;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-    }
-
-    .btn-outline-pitlog:hover {
-      background-color: var(--grease-ink);
-      color: var(--manila-bg);
-    }
-
-    .carousel-pitlog {
-      border: 2px solid var(--grease-ink);
-    }
-
-    .carousel-pitlog img {
-      height: 440px;
-      object-fit: cover;
-      filter: grayscale(100%) contrast(130%);
-    }
-
-    .carousel-caption-box {
-      background-color: rgba(20, 20, 19, 0.92);
-      border: 2px solid var(--caliper-red);
-      padding: 1.25rem;
-      text-align: left;
-    }
-
-    .table-pitlog {
-      border: 2px solid var(--grease-ink);
-      --bs-table-bg: var(--manila-bg);
-      --bs-table-striped-bg: #E2DDD4;
-      --bs-table-color: var(--grease-ink);
-    }
-
-    .form-control, .form-select {
-      background-color: #fff;
-      border: 2px solid var(--grease-ink);
-      border-radius: 0;
-      font-family: var(--font-mono);
-      font-size: 0.88rem;
-    }
-
-    .form-control:focus, .form-select:focus {
-      border-color: var(--caliper-red);
-      box-shadow: none;
-    }
-
-    .modal-content {
-      background-color: var(--manila-bg);
-      border: 3px solid var(--grease-ink);
-      border-radius: 0;
-    }
-  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            manila: '#EFECE6',
+            grease: '#141413',
+            caliper: '#D9381E',
+          },
+          fontFamily: {
+            display: ['"Big Shoulders Display"', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
 </head>
-<body>
+<body class="bg-manila text-grease font-mono antialiased">
 
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-pitlog py-3" aria-label="Navegação Principal da Oficina">
-      <div class="container">
-        <a class="navbar-brand fs-2" href="#">
-          <span class="text-danger">PITLOG //</span> BANCADA 071
+  <header class="bg-grease text-manila border-b-4 border-caliper">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4" aria-label="Navegação Principal Tailwind">
+      <div class="flex items-center justify-between">
+        <a href="#" class="font-display text-3xl font-extrabold tracking-wider uppercase">
+          <span class="text-caliper">PITLOG //</span> TAILWIND EDITION
         </a>
 
         <button
-          class="navbar-toggler rounded-0 border-light"
+          id="btnMenuMobile"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarOficina"
-          aria-controls="navbarOficina"
+          class="lg:hidden border-2 border-manila px-3 py-1.5 text-xs font-semibold uppercase"
           aria-expanded="false"
-          aria-label="Alternar menu de navegação"
+          aria-controls="menuMobileTailwind"
         >
-          <span class="navbar-toggler-icon"></span>
+          MENU [=]
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarOficina">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3 align-items-lg-center">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#destaques">01. Galeria Box</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#servicos">02. Preparação</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#telemetria">03. Tabela de Torque</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#agendamento">04. Abrir O.S.</a>
-            </li>
-            <li class="nav-item mt-2 mt-lg-0">
-              <button
-                type="button"
-                class="btn btn-danger rounded-0 fw-bold btn-sm px-3 py-2"
-                data-bs-toggle="modal"
-                data-bs-target="#modalDiagnostico"
-              >
-                [LAUDO OBD-II]
-              </button>
-            </li>
-          </ul>
-        </div>
+        <ul class="hidden lg:flex items-center space-x-6 text-sm">
+          <li><a href="#destaques" class="hover:text-caliper transition">01. Galeria Box</a></li>
+          <li><a href="#servicos" class="hover:text-caliper transition">02. Preparação</a></li>
+          <li><a href="#telemetria" class="hover:text-caliper transition">03. Tabela de Torque</a></li>
+          <li><a href="#agendamento" class="hover:text-caliper transition">04. Abrir O.S.</a></li>
+          <li>
+            <button
+              type="button"
+              onclick="toggleModal(true)"
+              class="bg-caliper text-white font-semibold px-4 py-2 text-xs uppercase hover:opacity-90"
+            >
+              [LAUDO OBD-II]
+            </button>
+          </li>
+        </ul>
       </div>
+
+      <ul id="menuMobileTailwind" class="hidden flex-col space-y-3 pt-4 mt-4 border-t border-neutral-700 lg:hidden text-sm">
+        <li><a href="#destaques" class="block hover:text-caliper">01. Galeria Box</a></li>
+        <li><a href="#servicos" class="block hover:text-caliper">02. Preparação</a></li>
+        <li><a href="#telemetria" class="block hover:text-caliper">03. Tabela de Torque</a></li>
+        <li><a href="#agendamento" class="block hover:text-caliper">04. Abrir O.S.</a></li>
+        <li>
+          <button
+            type="button"
+            onclick="toggleModal(true)"
+            class="w-full text-left bg-caliper text-white font-semibold px-4 py-2 text-xs uppercase"
+          >
+            [LAUDO OBD-II]
+          </button>
+        </li>
+      </ul>
     </nav>
   </header>
 
   <main>
 
-    <section id="destaques" class="py-5 section-border">
-      <div class="container">
-        <div class="row align-items-end mb-4">
-          <div class="col-lg-8">
-            <span class="tag-serial">UCSAL // ENGENHARIA DE SOFTWARE // REGISTRO VISUAL</span>
-            <h1 class="display-4 mb-0">ACERTO DE CHASSIS E TELEMETRIA DE PISTA</h1>
+    <section id="destaques" class="py-12 border-b-2 border-grease">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-6 gap-4">
+          <div>
+            <span class="text-xs font-semibold text-caliper tracking-widest uppercase block">
+              DESAFIO EXTRA // UTILITY-FIRST CSS
+            </span>
+            <h1 class="font-display text-5xl font-extrabold uppercase tracking-wide">
+              ACERTO DE CHASSIS E TELEMETRIA
+            </h1>
           </div>
-          <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
-            <button
-              type="button"
-              class="btn btn-pitlog"
-              data-bs-toggle="modal"
-              data-bs-target="#modalDiagnostico"
-            >
-              Consultar Laudo Técnico (Modal)
-            </button>
-          </div>
-        </div>
-
-        <div id="carouselBancada" class="carousel slide carousel-pitlog" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselBancada" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselBancada" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselBancada" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          </div>
-
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img
-                src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1400&q=80"
-                class="d-block w-100"
-                alt="Cofre de motor preparado em bancada mecânica"
-              />
-              <div class="carousel-caption d-block">
-                <div class="carousel-caption-box">
-                  <span class="tag-serial">SLIDE 01 // MOTOR E INJEÇÃO</span>
-                  <h2 class="h3 mb-1">Mapeamento em Dinamômetro de Rolo</h2>
-                  <p class="small mb-0">Aferição de mistura estequiométrica via sonda banda larga e ajuste fino de avanço de ignição.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="carousel-item">
-              <img
-                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80"
-                class="d-block w-100"
-                alt="Detalhe de roda e sistema de freio a disco perfurado"
-              />
-              <div class="carousel-caption d-block">
-                <div class="carousel-caption-box">
-                  <span class="tag-serial">SLIDE 02 // SISTEMA DE FRENAGEM</span>
-                  <h2 class="h3 mb-1">Linha Pressurizada em Malha de Aço</h2>
-                  <p class="small mb-0">Fluido DOT 4 Racing com ponto de ebulição seco de 270°C e pastilhas de composto semimetálico.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="carousel-item">
-              <img
-                src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=1400&q=80"
-                class="d-block w-100"
-                alt="Mecânico ajustando suspensão e geometria em oficina"
-              />
-              <div class="carousel-caption d-block">
-                <div class="carousel-caption-box">
-                  <span class="tag-serial">SLIDE 03 // GEOMETRIA E SUSPENSÃO</span>
-                  <h2 class="h3 mb-1">Balanço de Peso (Corner Balance)</h2>
-                  <p class="small mb-0">Ajuste de cambagem negativa e distribuição cruzada em balanças eletrônicas de precisão.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselBancada" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon bg-dark p-3" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselBancada" data-bs-slide="next">
-            <span class="carousel-control-next-icon bg-dark p-3" aria-hidden="true"></span>
-            <span class="visually-hidden">Próximo</span>
+          <button
+            type="button"
+            onclick="toggleModal(true)"
+            class="bg-grease text-manila border-2 border-grease px-5 py-2.5 text-xs font-semibold uppercase hover:bg-caliper hover:border-caliper transition self-start lg:self-auto"
+          >
+            Consultar Laudo Técnico (Modal)
           </button>
         </div>
-      </div>
-    </section>
 
-    <section id="servicos" class="py-5 section-border">
-      <div class="container">
-        <div class="mb-4">
-          <span class="tag-serial">02 // PACOTES DE INTERVENÇÃO TÉCNICA</span>
-          <h2 class="display-5">SERVIÇOS DE BANCADA</h2>
-        </div>
-
-        <div class="row g-4">
-          <div class="col-12 col-md-6 col-lg-4">
-            <article class="card card-pitlog h-100">
-              <img
-                src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80"
-                class="card-img-top"
-                alt="Cabeçote e comando de válvulas usinado"
-              />
-              <div class="card-body d-flex flex-column">
-                <span class="tag-serial mb-1">COD // ENG-101</span>
-                <h3 class="card-title h4">Revisão de Cabeçote e Comando</h3>
-                <p class="card-text small flex-grow-1">
-                  Assentamento de válvulas em três ângulos, teste de vedação a vácuo e conferência de folga axial dos mancais com plastigage.
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-pitlog w-100 mt-3"
-                  data-bs-toggle="modal"
-                  data-bs-target="#modalDiagnostico"
-                >
-                  Ver Especificação Técnica
-                </button>
-              </div>
-            </article>
+        <div class="relative border-2 border-grease bg-grease overflow-hidden">
+          <div class="tw-slide block relative">
+            <img
+              src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1400&q=80"
+              alt="Cofre de motor preparado"
+              class="w-full h-[420px] object-cover grayscale contrast-125"
+            />
+            <div class="absolute bottom-8 left-4 right-4 sm:left-10 sm:right-auto sm:max-w-xl bg-grease/95 border-2 border-caliper p-5 text-manila">
+              <span class="text-xs font-semibold text-caliper uppercase">SLIDE 01 // MOTOR E INJEÇÃO</span>
+              <h2 class="font-display text-3xl font-extrabold uppercase mt-1">Mapeamento em Dinamômetro</h2>
+              <p class="text-xs mt-1">Aferição de mistura via sonda banda larga e ajuste de ignição sob carga.</p>
+            </div>
           </div>
 
-          <div class="col-12 col-md-6 col-lg-4">
-            <article class="card card-pitlog h-100">
-              <img
-                src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=80"
-                class="card-img-top"
-                alt="Conjunto de roda e suspensão esportiva"
-              />
-              <div class="card-body d-flex flex-column">
-                <span class="tag-serial mb-1">COD // SUSP-204</span>
-                <h3 class="card-title h4">Setup de Suspensão e Buchas PU</h3>
-                <p class="card-text small flex-grow-1">
-                  Substituição de buchas originais por poliuretano Shore 85A e alinhamento técnico com -1.5° de cambagem dianteira.
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-pitlog w-100 mt-3"
-                  data-bs-toggle="modal"
-                  data-bs-target="#modalDiagnostico"
-                >
-                  Ver Especificação Técnica
-                </button>
-              </div>
-            </article>
+          <div class="tw-slide hidden relative">
+            <img
+              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80"
+              alt="Sistema de freio a disco"
+              class="w-full h-[420px] object-cover grayscale contrast-125"
+            />
+            <div class="absolute bottom-8 left-4 right-4 sm:left-10 sm:right-auto sm:max-w-xl bg-grease/95 border-2 border-caliper p-5 text-manila">
+              <span class="text-xs font-semibold text-caliper uppercase">SLIDE 02 // SISTEMA DE FRENAGEM</span>
+              <h2 class="font-display text-3xl font-extrabold uppercase mt-1">Linha Pressurizada DOT 4</h2>
+              <p class="text-xs mt-1">Ponto de ebulição seco de 270°C com pastilhas de composto semimetálico.</p>
+            </div>
           </div>
 
-          <div class="col-12 col-md-12 col-lg-4">
-            <article class="card card-pitlog h-100">
-              <img
-                src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=800&q=80"
-                class="card-img-top"
-                alt="Scanner de diagnóstico automotivo conectado"
-              />
-              <div class="card-body d-flex flex-column">
-                <span class="tag-serial mb-1">COD // ECU-309</span>
-                <h3 class="card-title h4">Diagnóstico OBD-II e Pressurização</h3>
-                <p class="card-text small flex-grow-1">
-                  Teste de estanqueidade na linha de admissão Turbo (Intake/Intercooler) e leitura de correção de curto e longo prazo (STFT/LTFT).
-                </p>
-                <button
-                  type="button"
-                  class="btn btn-outline-pitlog w-100 mt-3"
-                  data-bs-toggle="modal"
-                  data-bs-target="#modalDiagnostico"
-                >
-                  Ver Especificação Técnica
-                </button>
-              </div>
-            </article>
+          <div class="tw-slide hidden relative">
+            <img
+              src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=1400&q=80"
+              alt="Ajuste de suspensão em oficina"
+              class="w-full h-[420px] object-cover grayscale contrast-125"
+            />
+            <div class="absolute bottom-8 left-4 right-4 sm:left-10 sm:right-auto sm:max-w-xl bg-grease/95 border-2 border-caliper p-5 text-manila">
+              <span class="text-xs font-semibold text-caliper uppercase">SLIDE 03 // GEOMETRIA E SUSPENSÃO</span>
+              <h2 class="font-display text-3xl font-extrabold uppercase mt-1">Balanço de Peso e Cambagem</h2>
+              <p class="text-xs mt-1">Ajuste de cambagem negativa e distribuição cruzada em balanças de precisão.</p>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onclick="changeSlide(-1)"
+            class="absolute left-3 top-1/2 -translate-y-1/2 bg-grease text-manila border border-manila px-3 py-2 text-xs font-bold uppercase hover:bg-caliper"
+            aria-label="Slide anterior"
+          >
+            < ANT
+          </button>
+          <button
+            type="button"
+            onclick="changeSlide(1)"
+            class="absolute right-3 top-1/2 -translate-y-1/2 bg-grease text-manila border border-manila px-3 py-2 text-xs font-bold uppercase hover:bg-caliper"
+            aria-label="Próximo slide"
+          >
+            PRÓX >
+          </button>
+
+          <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex space-x-2">
+            <button type="button" onclick="goToSlide(0)" class="tw-dot w-3 h-3 bg-caliper border border-white" aria-label="Ir para slide 1"></button>
+            <button type="button" onclick="goToSlide(1)" class="tw-dot w-3 h-3 bg-neutral-600 border border-white" aria-label="Ir para slide 2"></button>
+            <button type="button" onclick="goToSlide(2)" class="tw-dot w-3 h-3 bg-neutral-600 border border-white" aria-label="Ir para slide 3"></button>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="telemetria" class="py-5 section-border">
-      <div class="container">
-        <div class="mb-4">
-          <span class="tag-serial">03 // DADOS TABULARES DE BANCADA</span>
-          <h2 class="display-5">TABELA DE TORQUE E ORDENS DE SERVIÇO</h2>
+    <section id="servicos" class="py-12 border-b-2 border-grease">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-6">
+          <span class="text-xs font-semibold text-caliper tracking-widest uppercase block">02 // PACOTES DE INTERVENÇÃO</span>
+          <h2 class="font-display text-4xl font-extrabold uppercase">SERVIÇOS DE BANCADA</h2>
         </div>
 
-        <div class="table-responsive">
-          <table class="table table-striped table-hover align-middle table-pitlog mb-0">
-            <thead class="table-dark">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="border-2 border-grease bg-manila flex flex-col">
+            <img
+              src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80"
+              alt="Cabeçote usinado"
+              class="w-full h-52 object-cover border-b-2 border-grease grayscale contrast-125"
+            />
+            <div class="p-5 flex flex-col flex-grow">
+              <span class="text-xs font-semibold text-caliper">COD // ENG-101</span>
+              <h3 class="font-display text-2xl font-extrabold uppercase mt-1">Revisão de Cabeçote e Comando</h3>
+              <p class="text-xs mt-2 flex-grow leading-relaxed">
+                Assentamento de válvulas em três ângulos, teste de vácuo e conferência de folga axial dos mancais.
+              </p>
+              <button
+                type="button"
+                onclick="toggleModal(true)"
+                class="mt-4 w-full border-2 border-grease py-2.5 text-xs font-semibold uppercase hover:bg-grease hover:text-manila transition"
+              >
+                Ver Especificação Técnica
+              </button>
+            </div>
+          </article>
+
+          <article class="border-2 border-grease bg-manila flex flex-col">
+            <img
+              src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=80"
+              alt="Suspensão esportiva"
+              class="w-full h-52 object-cover border-b-2 border-grease grayscale contrast-125"
+            />
+            <div class="p-5 flex flex-col flex-grow">
+              <span class="text-xs font-semibold text-caliper">COD // SUSP-204</span>
+              <h3 class="font-display text-2xl font-extrabold uppercase mt-1">Setup de Suspensão e Buchas PU</h3>
+              <p class="text-xs mt-2 flex-grow leading-relaxed">
+                Substituição de buchas por poliuretano Shore 85A e alinhamento técnico com -1.5° de cambagem dianteira.
+              </p>
+              <button
+                type="button"
+                onclick="toggleModal(true)"
+                class="mt-4 w-full border-2 border-grease py-2.5 text-xs font-semibold uppercase hover:bg-grease hover:text-manila transition"
+              >
+                Ver Especificação Técnica
+              </button>
+            </div>
+          </article>
+
+          <article class="border-2 border-grease bg-manila flex flex-col md:col-span-2 lg:col-span-1">
+            <img
+              src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=800&q=80"
+              alt="Scanner automotivo"
+              class="w-full h-52 object-cover border-b-2 border-grease grayscale contrast-125"
+            />
+            <div class="p-5 flex flex-col flex-grow">
+              <span class="text-xs font-semibold text-caliper">COD // ECU-309</span>
+              <h3 class="font-display text-2xl font-extrabold uppercase mt-1">Diagnóstico OBD-II e Pressurização</h3>
+              <p class="text-xs mt-2 flex-grow leading-relaxed">
+                Teste de estanqueidade na admissão Turbo e leitura de correção de mistura de curto e longo prazo.
+              </p>
+              <button
+                type="button"
+                onclick="toggleModal(true)"
+                class="mt-4 w-full border-2 border-grease py-2.5 text-xs font-semibold uppercase hover:bg-grease hover:text-manila transition"
+              >
+                Ver Especificação Técnica
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="telemetria" class="py-12 border-b-2 border-grease">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-6">
+          <span class="text-xs font-semibold text-caliper tracking-widest uppercase block">03 // DADOS TABULARES</span>
+          <h2 class="font-display text-4xl font-extrabold uppercase">TABELA DE TORQUE E ORDENS DE SERVIÇO</h2>
+        </div>
+
+        <div class="overflow-x-auto border-2 border-grease">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead class="bg-grease text-manila uppercase">
               <tr>
-                <th scope="col">CÓDIGO O.S.</th>
-                <th scope="col">COMPONENTE / SUBSISTEMA</th>
-                <th scope="col">TORQUE ESPECIFICADO</th>
-                <th scope="col">FLUIDO / PADRÃO</th>
-                <th scope="col">STATUS BANCADA</th>
+                <th class="p-3.5 border-b-2 border-grease">CÓDIGO O.S.</th>
+                <th class="p-3.5 border-b-2 border-grease">COMPONENTE / SUBSISTEMA</th>
+                <th class="p-3.5 border-b-2 border-grease">TORQUE ESPECIFICADO</th>
+                <th class="p-3.5 border-b-2 border-grease">FLUIDO / PADRÃO</th>
+                <th class="p-3.5 border-b-2 border-grease">STATUS BANCADA</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td class="fw-bold text-danger">OS-2026-01</td>
-                <td>Prisioneiros de Roda (Liga Leve)</td>
-                <td>110 Nm (Seco)</td>
-                <td>Torquímetro de Estalo</td>
-                <td><span class="badge bg-dark rounded-0">CONFERIDO</span></td>
+            <tbody class="divide-y divide-grease">
+              <tr class="odd:bg-manila even:bg-[#E2DDD4]">
+                <td class="p-3.5 font-bold text-caliper">OS-2026-01</td>
+                <td class="p-3.5">Prisioneiros de Roda (Liga Leve)</td>
+                <td class="p-3.5">110 Nm (Seco)</td>
+                <td class="p-3.5">Torquímetro de Estalo</td>
+                <td class="p-3.5"><span class="bg-grease text-manila px-2 py-1 text-xs font-semibold">CONFERIDO</span></td>
               </tr>
-              <tr>
-                <td class="fw-bold text-danger">OS-2026-02</td>
-                <td>Bujão do Cárter de Óleo do Motor</td>
-                <td>35 Nm + Arruela Nova</td>
-                <td>Sintético 5W30 DEXOS 1 Gen 3</td>
-                <td><span class="badge bg-dark rounded-0">CONFERIDO</span></td>
+              <tr class="odd:bg-manila even:bg-[#E2DDD4]">
+                <td class="p-3.5 font-bold text-caliper">OS-2026-02</td>
+                <td class="p-3.5">Bujão do Cárter de Óleo do Motor</td>
+                <td class="p-3.5">35 Nm + Arruela Nova</td>
+                <td class="p-3.5">Sintético 5W30 DEXOS 1 Gen 3</td>
+                <td class="p-3.5"><span class="bg-grease text-manila px-2 py-1 text-xs font-semibold">CONFERIDO</span></td>
               </tr>
-              <tr>
-                <td class="fw-bold text-danger">OS-2026-03</td>
-                <td>Suporte da Pinça de Freio Dianteira</td>
-                <td>95 Nm + Trava Química</td>
-                <td>Fluido DOT 4 (270°C)</td>
-                <td><span class="badge bg-danger rounded-0">EM EXECUÇÃO</span></td>
+              <tr class="odd:bg-manila even:bg-[#E2DDD4]">
+                <td class="p-3.5 font-bold text-caliper">OS-2026-03</td>
+                <td class="p-3.5">Suporte da Pinça de Freio Dianteira</td>
+                <td class="p-3.5">95 Nm + Trava Química</td>
+                <td class="p-3.5">Fluido DOT 4 (270°C)</td>
+                <td class="p-3.5"><span class="bg-caliper text-white px-2 py-1 text-xs font-semibold">EM EXECUÇÃO</span></td>
               </tr>
-              <tr>
-                <td class="fw-bold text-danger">OS-2026-04</td>
-                <td>Velas de Ignição Iridium</td>
-                <td>22 Nm (Folga 0.75mm)</td>
-                <td>Rosca Limpa a Seco</td>
-                <td><span class="badge bg-dark rounded-0">CONFERIDO</span></td>
+              <tr class="odd:bg-manila even:bg-[#E2DDD4]">
+                <td class="p-3.5 font-bold text-caliper">OS-2026-04</td>
+                <td class="p-3.5">Velas de Ignição Iridium</td>
+                <td class="p-3.5">22 Nm (Folga 0.75mm)</td>
+                <td class="p-3.5">Rosca Limpa a Seco</td>
+                <td class="p-3.5"><span class="bg-grease text-manila px-2 py-1 text-xs font-semibold">CONFERIDO</span></td>
               </tr>
-              <tr>
-                <td class="fw-bold text-danger">OS-2026-05</td>
-                <td>Porca Central da Homocinética</td>
-                <td>180 Nm + 45 Graus</td>
-                <td>Aperto Angular Transferidor</td>
-                <td><span class="badge bg-secondary rounded-0">AGUARDANDO PEÇA</span></td>
+              <tr class="odd:bg-manila even:bg-[#E2DDD4]">
+                <td class="p-3.5 font-bold text-caliper">OS-2026-05</td>
+                <td class="p-3.5">Porca Central da Homocinética</td>
+                <td class="p-3.5">180 Nm + 45 Graus</td>
+                <td class="p-3.5">Aperto Angular Transferidor</td>
+                <td class="p-3.5"><span class="bg-neutral-600 text-white px-2 py-1 text-xs font-semibold">AGUARDANDO PEÇA</span></td>
               </tr>
-              <tr>
-                <td class="fw-bold text-danger">OS-2026-06</td>
-                <td>Tampa de Válvulas e Coletor</td>
-                <td>10 Nm (Sequência Cruzada)</td>
-                <td>Junta de Elastômero Nova</td>
-                <td><span class="badge bg-dark rounded-0">CONFERIDO</span></td>
+              <tr class="odd:bg-manila even:bg-[#E2DDD4]">
+                <td class="p-3.5 font-bold text-caliper">OS-2026-06</td>
+                <td class="p-3.5">Tampa de Válvulas e Coletor</td>
+                <td class="p-3.5">10 Nm (Sequência Cruzada)</td>
+                <td class="p-3.5">Junta de Elastômero Nova</td>
+                <td class="p-3.5"><span class="bg-grease text-manila px-2 py-1 text-xs font-semibold">CONFERIDO</span></td>
               </tr>
             </tbody>
           </table>
@@ -431,92 +314,57 @@
       </div>
     </section>
 
-    <section id="agendamento" class="py-5">
-      <div class="container">
-        <div class="row g-5">
-          <div class="col-lg-5">
-            <span class="tag-serial">04 // ABERTURA DE CHAMADO TÉCNICO</span>
-            <h2 class="display-5">REGISTRAR ENTRADA NO BOX</h2>
-            <p class="small mt-3">
-              Preencha os parâmetros do veículo para agendar aferição no dinamômetro ou revisão preventiva. Todos os campos possuem validação nativa HTML5.
+    <section id="agendamento" class="py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div class="lg:col-span-5">
+            <span class="text-xs font-semibold text-caliper tracking-widest uppercase block">04 // ABERTURA DE CHAMADO</span>
+            <h2 class="font-display text-4xl font-extrabold uppercase">REGISTRAR ENTRADA NO BOX</h2>
+            <p class="text-xs mt-3 leading-relaxed">
+              Implementação com classes utilitárias do Tailwind CSS. Todos os 5 campos possuem rótulos vinculados e validação nativa HTML5.
             </p>
-            <div class="p-3 border border-2 border-dark mt-4">
-              <div class="tag-serial">HORÁRIO DE BANCADA</div>
-              <p class="small mb-0 mt-1">SEG A SEX: 08H ÀS 18H // SALVADOR - BA</p>
-            </div>
           </div>
 
-          <div class="col-lg-7">
-            <form id="formOrdemServico" class="p-4 border border-2 border-dark bg-white">
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label for="nomeProprietario" class="form-label fw-bold small">1. NOME DO RESPONSÁVEL *</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="nomeProprietario"
-                    placeholder="Ex: Afonso Menezes"
-                    required
-                  />
-                </div>
+          <div class="lg:col-span-7">
+            <form class="bg-white border-2 border-grease p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="twNome" class="block text-xs font-bold mb-1">1. NOME DO RESPONSÁVEL *</label>
+                <input id="twNome" type="text" required placeholder="Ex: Afonso Menezes" class="w-full border-2 border-grease p-2.5 text-xs focus:outline-none focus:border-caliper" />
+              </div>
 
-                <div class="col-md-6">
-                  <label for="emailContato" class="form-label fw-bold small">2. E-MAIL PARA LAUDO *</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="emailContato"
-                    placeholder="oficina@pitlog.com.br"
-                    required
-                  />
-                </div>
+              <div>
+                <label for="twEmail" class="block text-xs font-bold mb-1">2. E-MAIL PARA LAUDO *</label>
+                <input id="twEmail" type="email" required placeholder="oficina@pitlog.com.br" class="w-full border-2 border-grease p-2.5 text-xs focus:outline-none focus:border-caliper" />
+              </div>
 
-                <div class="col-md-6">
-                  <label for="modeloVeiculo" class="form-label fw-bold small">3. VEÍCULO / MOTORIZAÇÃO *</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="modeloVeiculo"
-                    placeholder="Ex: Onix Premier 1.0 Turbo"
-                    required
-                  />
-                </div>
+              <div>
+                <label for="twVeiculo" class="block text-xs font-bold mb-1">3. VEÍCULO / MOTORIZAÇÃO *</label>
+                <input id="twVeiculo" type="text" required placeholder="Ex: Onix Premier 1.0 Turbo" class="w-full border-2 border-grease p-2.5 text-xs focus:outline-none focus:border-caliper" />
+              </div>
 
-                <div class="col-md-6">
-                  <label for="tipoServico" class="form-label fw-bold small">4. MODALIDADE DE SERVIÇO *</label>
-                  <select class="form-select" id="tipoServico" required>
-                    <option value="" selected disabled>Selecione o subsistema...</option>
-                    <option value="revisao">Revisão Preventiva + Troca 5W30</option>
-                    <option value="freios">Sangria de Freios DOT 4 + Pastilhas</option>
-                    <option value="suspensao">Geometria, Cambagem e Buchas</option>
-                    <option value="dinamometro">Acerto no Dinamômetro / OBD-II</option>
-                  </select>
-                </div>
+              <div>
+                <label for="twServico" class="block text-xs font-bold mb-1">4. MODALIDADE DE SERVIÇO *</label>
+                <select id="twServico" required class="w-full border-2 border-grease p-2.5 text-xs bg-white focus:outline-none focus:border-caliper">
+                  <option value="" selected disabled>Selecione o subsistema...</option>
+                  <option value="revisao">Revisão Preventiva + Troca 5W30</option>
+                  <option value="freios">Sangria de Freios DOT 4</option>
+                  <option value="suspensao">Geometria e Cambagem</option>
+                  <option value="dinamometro">Acerto no Dinamômetro</option>
+                </select>
+              </div>
 
-                <div class="col-12">
-                  <label for="relatoTecnico" class="form-label fw-bold small">5. RELATO DE SINTOMAS OU PEDIDO ESPECÍFICO *</label>
-                  <textarea
-                    class="form-control"
-                    id="relatoTecnico"
-                    rows="3"
-                    placeholder="Descreva ruídos, quilometragem atual ou código de falha OBD..."
-                    required
-                  ></textarea>
-                </div>
+              <div class="md:col-span-2">
+                <label for="twRelato" class="block text-xs font-bold mb-1">5. RELATO DE SINTOMAS OU PEDIDO *</label>
+                <textarea id="twRelato" rows="3" required placeholder="Descreva ruídos, quilometragem ou código OBD..." class="w-full border-2 border-grease p-2.5 text-xs focus:outline-none focus:border-caliper"></textarea>
+              </div>
 
-                <div class="col-12 d-flex flex-wrap gap-2 justify-content-between align-items-center mt-4">
-                  <button type="submit" class="btn btn-pitlog">
-                    Emitir Ordem de Serviço
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-outline-pitlog"
-                    data-bs-toggle="modal"
-                    data-bs-target="#modalDiagnostico"
-                  >
-                    Visualizar Protocolo de Garantia
-                  </button>
-                </div>
+              <div class="md:col-span-2 flex flex-wrap justify-between items-center gap-3 pt-2">
+                <button type="submit" class="bg-grease text-manila px-5 py-2.5 text-xs font-semibold uppercase hover:bg-caliper transition">
+                  Emitir Ordem de Serviço
+                </button>
+                <button type="button" onclick="toggleModal(true)" class="border-2 border-grease px-4 py-2 text-xs font-semibold uppercase hover:bg-grease hover:text-manila transition">
+                  Abrir Modal de Garantia
+                </button>
               </div>
             </form>
           </div>
@@ -527,56 +375,85 @@
   </main>
 
   <div
-    class="modal fade"
-    id="modalDiagnostico"
-    tabindex="-1"
-    aria-labelledby="tituloModalDiagnostico"
-    aria-hidden="true"
+    id="modalTailwind"
+    class="fixed inset-0 bg-black/70 hidden items-center justify-center p-4 z-50"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="twModalTitle"
+    onclick="if(event.target === this) toggleModal(false)"
   >
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header border-bottom border-2 border-dark">
-          <div>
-            <span class="tag-serial">PROTOCOLO DE INSPEÇÃO // OBD-II</span>
-            <h2 class="modal-title h4 mb-0" id="tituloModalDiagnostico">
-              LAUDO PADRÃO DE BANCADA
-            </h2>
-          </div>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+    <div class="bg-manila border-4 border-grease max-w-lg w-full p-6">
+      <div class="flex justify-between items-start border-b-2 border-grease pb-3">
+        <div>
+          <span class="text-xs font-semibold text-caliper block">PROTOCOLO OBD-II // TAILWIND</span>
+          <h2 id="twModalTitle" class="font-display text-3xl font-extrabold uppercase">LAUDO PADRÃO DE BANCADA</h2>
         </div>
-        <div class="modal-body small">
-          <p>
-            Todo veículo admitido no <strong>PITLOG // BOX 071</strong> passa por escaneamento completo da central eletrônica (ECU), medição de bateria em carga e conferência de torque com ferramenta aferida.
-          </p>
-          <ul class="mb-0">
-            <li>Tolerância máxima de variação de compressão: 2%.</li>
-            <li>Aperto de rodas realizado exclusivamente com torquímetro (110 Nm).</li>
-            <li>Entrega acompanhada de folha impressa de telemetria.</li>
-          </ul>
-        </div>
-        <div class="modal-footer border-top border-2 border-dark">
-          <button type="button" class="btn btn-outline-pitlog" data-bs-dismiss="modal">
-            Fechar Janela
-          </button>
-          <a href="#agendamento" class="btn btn-pitlog" data-bs-dismiss="modal">
-            Confirmar e Ir para O.S.
-          </a>
-        </div>
+        <button type="button" onclick="toggleModal(false)" class="border border-grease px-2 py-0.5 text-xs font-bold">X</button>
+      </div>
+
+      <div class="py-4 text-xs space-y-2 leading-relaxed">
+        <p>Todo veículo admitido no <strong>PITLOG // BOX 071</strong> passa por escaneamento completo da ECU e conferência de torque com torquímetro aferido.</p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Tolerância máxima de variação de compressão: 2%.</li>
+          <li>Aperto de rodas fixado em 110 Nm a seco.</li>
+        </ul>
+      </div>
+
+      <div class="flex justify-end gap-3 border-t-2 border-grease pt-4">
+        <button type="button" onclick="toggleModal(false)" class="border-2 border-grease px-4 py-2 text-xs font-semibold uppercase">
+          Fechar
+        </button>
+        <a href="#agendamento" onclick="toggleModal(false)" class="bg-caliper text-white px-4 py-2 text-xs font-semibold uppercase">
+          Confirmar e Ir para O.S.
+        </a>
       </div>
     </div>
   </div>
 
-  <footer class="bg-dark text-light py-4 border-top border-3 border-danger">
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center small gap-2">
-      <div>
-        <strong>PITLOG // OFICINA DE PREPARAÇÃO</strong> — Atividade Bootstrap 5 (UCSal)
-      </div>
-      <div>
-        ENGENHARIA DE SOFTWARE // SALVADOR, BAHIA
-      </div>
+  <footer class="bg-grease text-manila py-6 border-t-4 border-caliper text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div><strong>PITLOG // OFICINA DE PREPARAÇÃO</strong> — Desafio Extra Tailwind CSS (UCSal)</div>
+      <div>ENGENHARIA DE SOFTWARE // SALVADOR, BAHIA</div>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const btnMenu = document.getElementById('btnMenuMobile');
+    const menuMobile = document.getElementById('menuMobileTailwind');
+    btnMenu.addEventListener('click', () => {
+      menuMobile.classList.toggle('hidden');
+      menuMobile.classList.toggle('flex');
+    });
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.tw-slide');
+    const dots = document.querySelectorAll('.tw-dot');
+
+    function showSlide(index) {
+      currentSlide = (index + slides.length) % slides.length;
+      slides.forEach((s, i) => {
+        s.classList.toggle('hidden', i !== currentSlide);
+        s.classList.toggle('block', i === currentSlide);
+      });
+      dots.forEach((d, i) => {
+        d.classList.toggle('bg-caliper', i === currentSlide);
+        d.classList.toggle('bg-neutral-600', i !== currentSlide);
+      });
+    }
+
+    function changeSlide(step) {
+      showSlide(currentSlide + step);
+    }
+
+    function goToSlide(index) {
+      showSlide(index);
+    }
+
+    function toggleModal(show) {
+      const modal = document.getElementById('modalTailwind');
+      modal.classList.toggle('hidden', !show);
+      modal.classList.toggle('flex', show);
+    }
+  </script>
 </body>
 </html>
